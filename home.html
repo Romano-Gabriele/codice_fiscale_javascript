@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calcolo del Codice Fiscale</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Calcolo del codice fiscale</div>
+        <div class="cols">
+            <div class="col">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" placeholder="Nome">
+                <label for="data">Data di nascita:</label>
+                <input type="date" id="data">
+                <label for="luogo">Luogo di nascita:</label>
+                <input type="text" id="luogo" placeholder="Luogo di nascita">
+            </div>
+            <div class="col">
+                <label for="cognome">Cognome:</label>
+                <input type="text" id="cognome" placeholder="Cognome">
+                <label for="radio">Sesso:</label>
+                <div class="radio">
+                    <div>
+                        <input type="radio" id="maschio" name="sesso">
+                        <label for="maschio">Maschio</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="femmina" name="sesso">
+                        <label for="femmina">Femmina</label>
+                    </div>
+                </div>
+                <label for="provincia">Provincia:</label>
+                <input type="text" id="provincia">
+                </div>
+        </div>
+        <button onclick="submit()">Invia</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
