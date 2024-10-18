@@ -106,9 +106,9 @@ function submit() {
 
     //place
     function place() {
-        
+        return comuni[luogo];
     }
 
-    cf += surname() + name() + year() + month() + day() + "F335" + "W";
-    // console.log(cf);
+    cf += surname() + name() + year() + month() + day() + place();
+    console.log(cf);
 }
