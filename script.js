@@ -5,8 +5,7 @@ function submit() {
     let data = document.getElementById("data").value.toUpperCase();
     let sesso = document.getElementsByName("sesso");
     let luogo = document.getElementById("luogo").value.toUpperCase();
-    let provincia = document.getElementById("provincia").value.toUpperCase();
-    let cf = "";
+    let codiceFiscale = document.getElementById("cf");
 
     function minore(stringaCons, stringaVoc) {
         let j = 0;
@@ -25,6 +24,18 @@ function submit() {
             }
         }
     }*/
+
+    function sommaCheckDigit(start, obj) {
+        let sum = 0;
+        for(let i = start; i <= cf.length - 1; i += 2) {
+            for(let key in obj) {
+                if(cf[i] == key) {
+                    sum += obj[key];
+                }
+            }
+        }
+        return sum;
+    }
 
     //cognome
     function surname() {
@@ -109,6 +120,15 @@ function submit() {
         return comuni[luogo];
     }
 
-    cf += surname() + name() + year() + month() + day() + place();
-    console.log(cf);
+    //check digit
+    function checkDigit() {
+        let cdSum = sommaCheckDigit(0, convDispari)+ sommaCheckDigit(1, convPari);
+        for(let key in finConv)
+            if(cdSum % 26 == key)
+                return finConv[key];
+    }
+
+    cf = surname() + name() + year() + month() + day() + place();
+    cf += checkDigit();
+    codiceFiscale.innerText = cf;
 }
